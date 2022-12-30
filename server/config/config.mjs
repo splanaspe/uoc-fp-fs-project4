@@ -69,4 +69,4 @@ type Mutation {
 }
 `
 
-export const mongoDbUrl = 'mongodb+srv://JavaScript:uoc1234@producto2.prmbfgr.mongodb.net/test'
+export const mongoDbUrl = 'mongodb+srv://bdAdmin:1234@bduoc.kd8xpcw.mongodb.net/test'
