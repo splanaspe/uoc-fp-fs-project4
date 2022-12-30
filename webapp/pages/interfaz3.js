@@ -15,12 +15,18 @@ function allowDrop(event) {
 
 function handleDrag(event) {
   event.dataTransfer.setData("text", event.target.id);
+
+  const img = new Image();
+  img.src = "../assets/img/targeta.png"; 
+  event.dataTransfer.setDragImage(img, 10, 10);
 }
 
 function handleDrop(event) {
   if (!event.target.className?.includes(COLUMN_CLASS)) {
     return
   }
+
+  event.dataTransfer.dropEffect = 'link';
 
   const currentColumn = event.target.getAttribute("data-columna");
 
@@ -31,7 +37,7 @@ function handleDrop(event) {
   console.log('./data', data, currentColumn)
 
   window.ioAPI.moveTarea(data, { columna: currentColumn })
-}
+} 
 
 
 const createCard = ({
