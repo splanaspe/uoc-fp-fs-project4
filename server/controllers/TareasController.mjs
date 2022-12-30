@@ -15,13 +15,13 @@ export const addTareaResolver = (root, args) => {
 
 export const updateTareaResolver = async (root, args) => {
   const tarea = await (Tarea.findById(args._id).exec())
-  tarea.titulo = args.titulo
-  tarea.descripcion = args.descripcion
-  tarea.fecha_inicio = args.fecha_inicio
-  tarea.fecha_fin = args.fecha_fin
-  tarea.estado = args.estado
-  tarea.columna = args.columna
-  tarea.fileName = args.fileName
+  tarea.titulo = args.titulo || tarea.titulo
+  tarea.descripcion = args.descripcion || tarea.descripcion
+  tarea.fecha_inicio = args.fecha_inicio || tarea.fecha_inicio
+  tarea.fecha_fin = args.fecha_fin || tarea.fecha_fin
+  tarea.estado = args.estado || tarea.estado
+  tarea.columna = args.columna || tarea.columna
+  tarea.fileName = args.fileName || tarea.fileName
 
   return tarea.save()
 }

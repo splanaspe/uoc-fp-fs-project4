@@ -161,6 +161,20 @@ io.on('connection', (socket) => {
     }
   })
 
+  socket.on('moveTarea', ({ id, tarea }) => {
+    console.log('moveTarea', { id, tarea });
+
+    try {
+      updateTareaResolver(null, {
+        _id: id,
+        columna: tarea.columna,
+      })
+      notifyTaskNotification('tarea movida')
+    } catch (error) {
+      notifyError(error.toString())
+    }
+  })
+
 
   socket.on('disconnect', () => {
     console.log('user disconnected');

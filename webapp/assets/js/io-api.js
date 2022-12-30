@@ -47,6 +47,10 @@ class ioAPI {
         socket.emit('modifyTarea', { id, tarea });
     }
 
+    static moveTarea(id, tarea) {
+        socket.emit('moveTarea', { id, tarea });
+    }
+
     static modifyPanel(id, panel) {
         socket.emit('modifyPanel', { id, panel });
     }

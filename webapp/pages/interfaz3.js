@@ -22,9 +22,15 @@ function handleDrop(event) {
     return
   }
 
+  const currentColumn = event.target.getAttribute("data-columna");
+
   event.preventDefault();
   var data = event.dataTransfer.getData("text");
   event.target.appendChild(document.getElementById(data));
+
+  console.log('./data', data, currentColumn)
+
+  window.ioAPI.moveTarea(data, { columna: currentColumn })
 }
 
 

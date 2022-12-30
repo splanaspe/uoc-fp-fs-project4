@@ -48,7 +48,8 @@
 <div class="container-fluid mt-4">
 
   <!-- columna 1-->
-  <div class="columna columna-azul bodyDrop" id="box1" ondrop="handleDrop(event)" ondragover="allowDrop(event)">
+  <div class="columna columna-TODO columna-azul bodyDrop" data-columna="TODO" id="box1" ondrop="handleDrop(event)"
+    ondragover="allowDrop(event)">
     <button type="button" class="btn-box2 is-danger" data-bs-toggle="modal" data-bs-target="#Modal1">
       <span class="icon">
         <i class="fas fa-plus"></i>
@@ -101,7 +102,8 @@
 
 
   <!-- columna 2-->
-  <div class="columna columna-verde bodyDrop" id="box2" ondrop="handleDrop(event)" ondragover="allowDrop(event)">
+  <div class="columna columna-verde bodyDrop" data-columna="DOING" id="box2" ondrop="handleDrop(event)"
+    ondragover="allowDrop(event)">
     <button type="button" class="btn-box2 is-danger" data-bs-toggle="modal" data-bs-target="#Modal2">
       <span class="icon">
         <i class="fas fa-plus"></i>
@@ -152,7 +154,8 @@
 
 
   <!-- columna 3-->
-  <div class="columna columna-amarilla " id="box3" ondrop="handleDrop(event)" ondragover="allowDrop(event)">
+  <div class="columna columna-amarilla " data-columna="DONE" id="box3" ondrop="handleDrop(event)"
+    ondragover="allowDrop(event)">
     <button type="button" class="button is-danger" data-bs-toggle="modal" data-bs-target="#Modal3">
       <span class="icon">
         <i class="fas fa-plus"></i>
