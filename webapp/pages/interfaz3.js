@@ -33,7 +33,8 @@ const createCard = ({
   description,
   file,
   fileName,
-  previousId
+  previousId,
+  estado,
 }) => {
   const id = previousId || new Date().getTime();
 
@@ -45,6 +46,7 @@ const createCard = ({
         description,
         panelId,
         fileName: file?.name,
+        estado,
       }
     )
 
@@ -161,6 +163,7 @@ addBtnTODO.addEventListener("click", (e) => {
     description,
     file,
     fileName: file.name,
+    estado: 'TODO',
   });
   cardContainerTODO.appendChild(card);
 });
@@ -188,6 +191,7 @@ addBtnDOING.addEventListener("click", (e) => {
     description,
     file,
     fileName: file.name,
+    estado: 'DOING',
   });
   cardContainerDOING.appendChild(card);
 });
@@ -222,6 +226,7 @@ addBtnDONE.addEventListener("click", (e) => {
     description,
     file,
     fileName: file.name,
+    estado: 'DONE',
   });
   cardContainerDONE.appendChild(card);
 });
@@ -244,7 +249,8 @@ window.getAllTareas().then((res) => res.json()).then(({ data }) => {
       title: tareaData.titulo,
       description: tareaData.descripcion,
       fileName: tareaData.fileName,
-      previousId: tareaData._id
+      previousId: tareaData._id,
+      estado: tareaData.estado,
     })
 
     if (tareaData.estado === 'DOING') {

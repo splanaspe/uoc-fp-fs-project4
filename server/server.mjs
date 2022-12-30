@@ -110,6 +110,7 @@ io.on('connection', (socket) => {
         descripcion: tarea.description,
         panelId: tarea.panelId,
         fileName: tarea.fileName,
+        estado: tarea.estado,
       })
       notifyTaskNotification('tarea agregada')
     } catch (error) {
