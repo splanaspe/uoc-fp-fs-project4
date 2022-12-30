@@ -34,7 +34,7 @@ const createCard = ({
   file,
   fileName,
   previousId,
-  estado,
+  columna,
 }) => {
   const id = previousId || new Date().getTime();
 
@@ -46,7 +46,7 @@ const createCard = ({
         description,
         panelId,
         fileName: file?.name,
-        estado,
+        columna,
       }
     )
 
@@ -163,7 +163,7 @@ addBtnTODO.addEventListener("click", (e) => {
     description,
     file,
     fileName: file.name,
-    estado: 'TODO',
+    columna: 'TODO',
   });
   cardContainerTODO.appendChild(card);
 });
@@ -191,7 +191,7 @@ addBtnDOING.addEventListener("click", (e) => {
     description,
     file,
     fileName: file.name,
-    estado: 'DOING',
+    columna: 'DOING',
   });
   cardContainerDOING.appendChild(card);
 });
@@ -226,7 +226,7 @@ addBtnDONE.addEventListener("click", (e) => {
     description,
     file,
     fileName: file.name,
-    estado: 'DONE',
+    columna: 'DONE',
   });
   cardContainerDONE.appendChild(card);
 });
@@ -250,12 +250,12 @@ window.getAllTareas().then((res) => res.json()).then(({ data }) => {
       description: tareaData.descripcion,
       fileName: tareaData.fileName,
       previousId: tareaData._id,
-      estado: tareaData.estado,
+      columna: tareaData.columna,
     })
 
-    if (tareaData.estado === 'DOING') {
+    if (tareaData.columna === 'DOING') {
       document.getElementById(BOX2_CONTAINER).append(tareaElement)
-    } else if (tareaData.estado === 'DONE') {
+    } else if (tareaData.columna === 'DONE') {
       document.getElementById(BOX3_CONTAINER).append(tareaElement)
     } else {
       document.getElementById(BOX1_CONTAINER).append(tareaElement)
