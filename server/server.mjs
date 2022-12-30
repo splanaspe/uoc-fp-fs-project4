@@ -96,7 +96,7 @@ io.on('connection', (socket) => {
 
   // tareas
   socket.on('addTarea', ({ id, tarea }) => {
-    console.log('addTarea', { id, tarea });
+    console.log('addTarea', { id, tarea }, 'tarea.columna', tarea.columna);
 
     if (tarea.title === '0') {
       notifyError('no se puede agregar una tarea con titulo 0')
@@ -111,6 +111,7 @@ io.on('connection', (socket) => {
         panelId: tarea.panelId,
         fileName: tarea.fileName,
         estado: tarea.estado,
+        columna: tarea.columna,
       })
       notifyTaskNotification('tarea agregada')
     } catch (error) {
@@ -152,6 +153,7 @@ io.on('connection', (socket) => {
         titulo: tarea.title,
         descripcion: tarea.description,
         fileName: tarea.fileName,
+        columna: tarea.columna,
       })
       notifyTaskNotification('tarea modificada')
     } catch (error) {
